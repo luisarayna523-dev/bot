@@ -3,32 +3,220 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela VIP Ezordium</title>
     <style>
-        body { background: #000; color: #fff; font-family: 'Segoe UI', sans-serif; padding: 20px; }
-        .card { 
-            border: 1px solid #00f2ff; 
-            border-radius: 15px; 
-            padding: 20px; 
-            margin-bottom: 20px;
-            box-shadow: 0 0 15px #00f2ff33;
+        :root {
+            --neon-green: #00ff41;
+            --neon-purple: #bc13fe;
+            --bg-dark: #050505;
+            --card-bg: #0a0a0a;
         }
-        h2 { color: #00f2ff; text-transform: uppercase; margin-top: 0; }
-        .metodo { background: #111; padding: 8px; border-radius: 5px; margin: 5px 0; border-left: 3px solid #00f2ff; font-size: 14px; }
-        .preco { font-size: 28px; color: #0f0; font-weight: bold; text-align: center; margin: 10px 0; }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Container Principal */
+        .container {
+            width: 100%;
+            max-width: 400px;
+            border: 2px solid var(--neon-green);
+            border-radius: 20px;
+            padding: 10px;
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
+        }
+
+        /* Header Estilo Vídeo */
+        .header {
+            text-align: center;
+            border: 2px solid var(--neon-green);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 15px;
+            background: linear-gradient(180deg, #000 0%, #051a05 100%);
+        }
+
+        .header h1 {
+            color: var(--neon-purple);
+            font-size: 22px;
+            text-transform: uppercase;
+            margin: 0;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px var(--neon-purple);
+        }
+
+        .price-tag {
+            display: inline-block;
+            border: 2px solid var(--neon-green);
+            border-radius: 50px;
+            padding: 5px 25px;
+            color: var(--neon-green);
+            font-size: 28px;
+            font-weight: bold;
+            margin: 15px 0;
+            box-shadow: 0 0 10px var(--neon-green);
+        }
+
+        .sub-info {
+            font-size: 12px;
+            color: #888;
+            text-transform: uppercase;
+        }
+
+        /* Seções de Conteúdo */
+        .section {
+            border: 1px solid var(--neon-purple);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: var(--card-bg);
+        }
+
+        .section-title {
+            color: var(--neon-purple);
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 5px;
+        }
+
+        .item-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .item-list li {
+            font-size: 13px;
+            margin: 8px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            color: #ddd;
+        }
+
+        .item-list li::before {
+            content: "▶";
+            color: var(--neon-green);
+            font-size: 10px;
+            margin-top: 3px;
+        }
+
+        /* Grid para Métodos (para não ficar infinito) */
+        .methods-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 5px;
+        }
+
+        .footer-info {
+            text-align: center;
+            font-size: 12px;
+            color: var(--neon-green);
+            margin-top: 10px;
+            padding: 10px;
+            border-top: 1px dashed #333;
+        }
+
+        .contact-btn {
+            background: transparent;
+            border: 1px solid var(--neon-green);
+            color: var(--neon-green);
+            padding: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: block;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        .contact-btn:hover {
+            background: var(--neon-green);
+            color: #000;
+        }
     </style>
 </head>
 <body>
-    <div class="card">
-        <h2>🎟 VIP EZORDIUM</h2>
-        <div class="preco">R$ 20,00</div>
-        <p>✅ +5000 MÉTODOS ATUALIZADOS</p>
+
+<div class="container">
+    <div class="header">
+        <div style="font-size: 10px; color: #fff; margin-bottom: 5px;">🔒 ACESSO VITALÍCIO & ANÔNIMO 🔒</div>
+        <h1>CANAL DE MÉTODOS EXCLUSIVE</h1>
+        <div class="price-tag">R$ 20,00</div>
+        <div class="sub-info">+5000 MÉTODOS | MATÉRIA PRIMEIRA | 2026</div>
     </div>
 
-    <div class="card">
-        <h2>🔥 DESTAQUES</h2>
-        <div class="metodo">💎 ESQUEMA BEBIDAS</div>
-        <div class="metodo">💎 ESQUEMA DIMAS FF</div>
-        <div class="metodo">💎 iFOOD NA CC</div>
+    <div class="section">
+        <div class="section-title">🪪 INFORMAÇÕES VIP</div>
+        <ul class="item-list">
+            <li>MÉTODOS E ESQUEMAS 2026</li>
+            <li>ATUALIZADOS E FUNCIONAIS</li>
+            <li>VÍDEO, ESCRITO E PDF</li>
+            <li>SUPORTE GARANTIDO</li>
+            <li>APROVADO POR CLIENTES</li>
+        </ul>
     </div>
+
+    <div class="section">
+        <div class="section-title">🔥 ESQUEMAS EM DESTAQUE</div>
+        <div class="methods-grid">
+            <ul class="item-list">
+                <li>ESQUEMA BEBIDAS / DIMAS FF</li>
+                <li>IFOOD NA CC / RAÇÃO / CARNE</li>
+                <li>PICPAY / MERCADO PAGO / ITI</li>
+                <li>CASAS BAHIA / MAGALU / WISH</li>
+                <li>GASOLINA / PAGBANK SALDO</li>
+                <li>SUBMARINO / UBER EATS / TIKTOK</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">🛡️ MÉTODOS E BUGS</div>
+        <ul class="item-list" style="max-height: 200px; overflow-y: auto;">
+            <li>NETFLIX ILIMITADA / CLARO</li>
+            <li>BUG C6 BANK / PIX FAKE</li>
+            <li>AMAZON MAX / DISNEY PLUS</li>
+            <li>HBO MAX / YOUTUBE PREMIUM</li>
+            <li>SPOTIFY / DEEZER / TIDAL</li>
+            <li>HACKEAR FACEBOOK / INSTA</li>
+            <li>LIMPAR NOME SERASA / SPC</li>
+            <li>CARDING / DADOS FULL / SELFIE</li>
+            <li><i>+4800 itens na lista completa...</i></li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <div class="section-title">🥶 CURSOS GRADUADOS</div>
+        <ul class="item-list">
+            <li>CURSOS HACKERS / INVESTIMENTO</li>
+            <li>MARKETING DIGITAL / DESIGNER</li>
+            <li>DAY TRADE / AÇÕES / ADS</li>
+            <li>MEDICINA / IDIOMAS / DJ</li>
+        </ul>
+    </div>
+
+    <div class="footer-info">
+        💎 MÉTODOS EXCLUSIVOS TODOS OS DIAS<br>
+        ✅ FORMAS DE PAGAMENTO: PIX
+        <div style="margin-top: 10px;">
+            <a href="https://t.me/vivoDluxo" class="contact-btn">👑 Suporte: @vivoDluxo</a>
+            <a href="https://t.me/ThommasCooper" class="contact-btn">👑 Suporte: @ThommasCooper</a>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
