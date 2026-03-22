@@ -3,137 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabela VIP Ezordium</title>
+    <title>VIP EXZORDIUM - 2026</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;700&display=swap');
+
         :root {
             --neon-green: #00ff41;
             --neon-purple: #bc13fe;
-            --bg-dark: #000000;
+            --bg-black: #050505;
+            --glow: 0 0 15px rgba(0, 255, 65, 0.5);
         }
 
         body {
-            background-color: var(--bg-dark);
-            color: #ffffff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            background-color: var(--bg-black);
+            color: #fff;
+            font-family: 'Rajdhani', sans-serif;
+            margin: 0; padding: 15px;
+            overflow-x: hidden;
+        }
+
+        /* Efeito de Scanlines (Linhas de monitor) */
+        body::before {
+            content: " ";
+            display: block; position: fixed; top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 2; background-size: 100% 2px, 3px 100%; pointer-events: none;
         }
 
         .container {
-            width: 100%;
-            max-width: 450px;
-            border: 2px solid var(--neon-green);
-            border-radius: 20px;
-            padding: 15px;
-            box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
-            box-sizing: border-box;
+            width: 100%; max-width: 450px;
+            margin: auto; position: relative; z-index: 3;
         }
 
+        /* Header Futurista */
         .header {
-            text-align: center;
             border: 2px solid var(--neon-green);
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 20px;
-            background: linear-gradient(180deg, #000 0%, #081a08 100%);
+            border-radius: 20px 0 20px 0;
+            padding: 30px 15px;
+            text-align: center;
+            background: rgba(0, 255, 65, 0.05);
+            box-shadow: var(--glow), inset 0 0 20px rgba(0, 255, 65, 0.2);
+            margin-bottom: 30px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 10px var(--neon-green); }
+            50% { box-shadow: 0 0 25px var(--neon-green); }
+            100% { box-shadow: 0 0 10px var(--neon-green); }
         }
 
         .header h1 {
+            font-family: 'Orbitron', sans-serif;
             color: var(--neon-purple);
-            font-size: 24px;
-            text-transform: uppercase;
-            margin: 10px 0;
-            text-shadow: 0 0 10px var(--neon-purple);
+            font-size: 26px; margin: 0;
+            text-shadow: 0 0 15px var(--neon-purple);
+            letter-spacing: 3px;
         }
 
-        .price-tag {
-            display: inline-block;
-            border: 2px solid var(--neon-green);
-            border-radius: 50px;
-            padding: 8px 30px;
+        .price-box {
+            font-size: 45px; font-weight: 700;
             color: var(--neon-green);
-            font-size: 32px;
-            font-weight: bold;
-            margin: 10px 0;
-            box-shadow: 0 0 15px var(--neon-green);
+            margin: 15px 0;
+            text-shadow: var(--glow);
         }
 
+        /* Seções Estilo Painel de Controle */
         .section {
-            border: 1px solid var(--neon-purple);
-            border-radius: 12px;
+            border: 1px solid #333;
+            background: rgba(10, 10, 10, 0.9);
+            border-radius: 10px;
             padding: 15px;
-            margin-bottom: 20px;
-            background: #0a0a0a;
-            box-shadow: inset 0 0 10px rgba(188, 19, 254, 0.1);
+            margin-bottom: 25px;
+            border-left: 5px solid var(--neon-purple);
         }
 
         .section-title {
+            font-family: 'Orbitron', sans-serif;
             color: var(--neon-purple);
-            font-size: 18px;
-            font-weight: bold;
+            font-size: 16px;
             text-transform: uppercase;
-            text-align: center;
             margin-bottom: 15px;
-            border-bottom: 1px solid #333;
-            padding-bottom: 8px;
-            letter-spacing: 1px;
+            display: flex; justify-content: space-between;
         }
 
-        .list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .list li {
-            font-size: 14px;
-            margin: 10px 0;
-            display: flex;
-            align-items: center;
+        /* Grid para caber TUDO sem ficar gigante */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 10px;
-            color: #eee;
         }
 
-        .list li::before {
-            content: "▶";
-            color: var(--neon-green);
-            font-size: 12px;
+        .item {
+            font-size: 13px;
+            padding: 8px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 4px;
+            border-bottom: 1px solid #222;
+            color: #ccc;
+            transition: 0.3s;
         }
 
-        .divider {
-            text-align: center;
+        .item:hover {
             color: var(--neon-green);
-            margin: 15px 0;
-            font-size: 12px;
-            opacity: 0.7;
+            background: rgba(0, 255, 65, 0.1);
         }
+
+        .item b { color: var(--neon-green); margin-right: 5px; }
+
+        .full-width { grid-column: span 2; }
 
         .footer {
             text-align: center;
             padding: 20px;
-            border-top: 1px dashed var(--neon-purple);
+            font-size: 12px;
+            color: #666;
+            border-top: 1px dashed var(--neon-green);
         }
 
-        .btn {
+        .btn-buy {
             display: block;
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border: 1px solid var(--neon-green);
-            border-radius: 8px;
-            color: var(--neon-green);
+            background: var(--neon-purple);
+            color: #fff;
+            padding: 15px;
+            border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
             text-align: center;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            background: var(--neon-green);
-            color: #000;
+            box-shadow: 0 0 15px var(--neon-purple);
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -141,60 +139,88 @@
 
 <div class="container">
     <div class="header">
-        <div style="font-size: 12px;">🔒 ACESSO VITALÍCIO & ANÔNIMO 🔒</div>
-        <h1>CANAL DE MÉTODOS EXCLUSIVE</h1>
-        <div class="price-tag">R$ 20,00</div>
-        <div style="color: #888; font-size: 13px;">+5000 MÉTODOS | MATÉRIA PRIMEIRA | 2026</div>
+        <div style="font-size: 11px; letter-spacing: 4px; margin-bottom: 10px;">SYSTEM STATUS: ONLINE</div>
+        <h1>VIP EXCLUSIVE</h1>
+        <div class="price-box">R$ 20,00</div>
+        <div style="color: #888;">+5000 MÉTODOS ATUALIZADOS 2026</div>
     </div>
 
     <div class="section">
-        <div class="section-title">🎫 TABELA DO CANAL VIP</div>
-        <ul class="list">
-            <li>☔️ ACESSO AVANÇADO PLUS</li>
-            <li>✅ VALOR R$ 20,00</li>
-            <li>✅ CONTÉM +5000 MÉTODOS</li>
-            <li>✅ MÉTODOS EM VÍDEO, ESCRITO E PDF</li>
-        </ul>
+        <div class="section-title">📂 INFO <span>[DECRYPTED]</span></div>
+        <div class="grid">
+            <div class="item"><b>✓</b> MÉTODOS 2026</div>
+            <div class="item"><b>✓</b> VÍDEO/PDF</div>
+            <div class="item"><b>✓</b> SUPORTE 24H</div>
+            <div class="item"><b>✓</b> TUTORIAIS</div>
+        </div>
     </div>
 
     <div class="section">
-        <div class="section-title">🪪 INFORMAÇÕES 2026</div>
-        <ul class="list">
-            <li>MÉTODOS E ESQUEMAS ATUALIZADOS</li>
-            <li>ATUALIZADOS E FUNCIONAIS</li>
-            <li>MÉTODOS TODOS OS DIAS</li>
-            <li>SUPORTE GARANTIDO</li>
-            <li>TUTORIAL PARA INICIANTES</li>
-            <li>APROVADO POR CLIENTES</li>
-        </ul>
+        <div class="section-title">🔥 ESQUEMAS DESTAQUE <span>[HOT]</span></div>
+        <div class="grid">
+            <div class="item">BEBIDAS</div> <div class="item">DIMAS FF</div>
+            <div class="item">IFOOD NA CC</div> <div class="item">RAÇÃO</div>
+            <div class="item">CARNE</div> <div class="item">PICPAY</div>
+            <div class="item">MERCADO PAGO</div> <div class="item">ITI ITAÚ</div>
+            <div class="item">CASAS BAHIA</div> <div class="item">POLISHOP</div>
+            <div class="item">WISH</div> <div class="item">GASOLINA</div>
+            <div class="item">PAGBANK SALDO</div> <div class="item">SUBMARINO</div>
+            <div class="item">MAGALU</div> <div class="item">DROGASIL</div>
+            <div class="item">RAPPI</div> <div class="item">NETSHOES</div>
+            <div class="item">PEGAR BOLETO</div> <div class="item">UBER EATS</div>
+            <div class="item">CACAU SHOW</div> <div class="item">SHOPEE</div>
+            <div class="item">TIKTOK</div>
+        </div>
     </div>
 
     <div class="section">
-        <div class="section-title">🔥 ESQUEMAS EM DESTAQUE</div>
-        <ul class="list">
-            <li>💎 ESQUEMA BEBIDAS</li><li>💎 ESQUEMA DIMAS FF</li><li>💎 ESQUEMA IFOOD NA CC</li><li>💎 ESQUEMA RAÇÃO</li><li>💎 ESQUEMA CARNE</li><li>💎 ESQUEMA PICPAY</li><li>💎 ESQUEMA MERCADO PAGO</li><li>💎 ESQUEMA ITI ITAÚ</li><li>💎 ESQUEMA CASAS BAHIA</li><li>💎 ESQUEMA POLISHOP</li><li>💎 ESQUEMA WISH</li><li>💎 ESQUEMA GASOLINA</li><li>💎 ESQUEMA PAGBANK VIRANDO SALDO</li><li>💎 ESQUEMA SUBMARINO</li><li>💎 ESQUEMA MAGALU</li><li>💎 ESQUEMA DROGASIL</li><li>💎 ESQUEMA RAPPI</li><li>💎 ESQUEMA NETSHOES</li><li>💎 ESQUEMA PEGAR BOLETO</li><li>💎 ESQUEMA UBER EATS</li><li>💎 ESQUEMA CACAU SHOW</li><li>💎 ESQUEMA SHOPEE</li><li>💎 ESQUEMA TIKTOK</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <div class="section-title">🛡️ MÉTODOS E BUGS</div>
-        <ul class="list">
-            <li>👑 MÉTODO NETFLIX ILIMITADA</li><li>👑 MÉTODO NETFLIX VIA CLARO</li><li>👑 BUG C6 BANK</li><li>👑 MÉTODO DUOLINGO PLUS</li><li>👑 METODO VRV + CHUNCHYROLL</li><li>👑 MÉTODO PLAY PASS</li><li>👑 MÉTODO AMAZOM MAX</li><li>👑 MÉTODO NAMACHEAP VPN</li><li>👑 METODO PDF DRIVE</li><li>👑 METODO HOOT SUITE</li><li>👑 MÉTODO MARVEL UNLIMITED</li><li>👑 MÉTODO PHILO</li><li>👑 MÉTODO DEZZER 3 MESES</li><li>👑 MÉTODO PREMIUM VIDEO</li><li>👑 MÉTODO CHUNCHYROLL</li><li>👑 MÉTODO TIDAL</li><li>👑 HBO MAX 6 MESES</li><li>👑 MÉTODO SPOTIFY PREMIUM</li><li>👑 MÉTODO TELECINE</li><li>👑 MÉTODO YOUTUBE PREMIUM</li><li>👑 METODO DISNEY PLUS</li><li>👑 MÉTODO NAPSTER 3 MESES</li><li>👑 MÉTODO FLIXOLE</li><li>👑 MÉTODO SOLOSARN</li><li>👑 MÉTODO PICSART GOLD</li><li>👑 MÉTODO GLOBO PLAY</li><li>👑 MÉTODO GIFT CARD</li><li>👑 MÉTODO PARAMOUNT</li><li>👑 MÉTODO SHUDDER</li><li>👑 MÉTODO AMAZON</li><li>👑 TRANSFORMAR GIFT EM BTC</li><li>👑 MÉTODO 99</li><li>👑 PANINI METODO</li><li>👑 MERCADO LIVRE POR SALDO</li><li>👑 MÉTODO DE TER GIFT CARD</li><li>👑 MÉTODO EMPRÉSTIMO</li><li>👑 MÉTODO VALE-PRESENTE</li><li>👑 MÉTODO RECARREGAR CARTÕES</li><li>👑 MÉTODO CASHAPP</li><li>👑 ESQUEMA NOVO CASAS BAHIA</li><li>👑 HACKEAR GOOGLE PLAY STORE</li><li>👑 MÉTODO BURGUER KING</li><li>👑 MÉTODO MCDONALD'S</li><li>👑 MÉTODO WISH TOP</li><li>👑 DUPLICAR DINHEIRO PAYPAL</li><li>👑 INVASÃO PIX</li><li>👑 APROVANDO ALIEXPRESS</li><li>👑 ESQUEMA LACOSTE</li><li>👑 MÉTODO COMPRAS EM MERCADO</li><li>👑 MÉTODO ADULT TIME</li><li>👑 GAROTA DE PROGRAMAS</li><li>👑 MÉTODO CANVA PREMIUM</li><li>👑 COMO GANHAR INSCRITOS NO YT</li><li>👑 MÉTODO PARA UPAR GRUPO</li><li>👑 MÉTODO DE BANIR NO INSTAGRAM</li><li>👑 DISCORD NITRO</li><li>👑 APROVANDO NO PONTO FRIO</li><li>👑 TUTORIAL LOJAS MANICA</li><li>👑 APROVAR CÂMERA PRIVE</li><li>👑 TUTORIAL DE DEPÓSITO</li><li>👑 SPOTIFY PREMIUM</li><li>👑 MÉTODO AMAZON</li><li>👑 HACKEAR FACEBOOK</li><li>👑 MÉTODO PLAYSTORE</li><li>👑 LIMPAR NOME SERASA/SPC</li><li>👑 MÉTODO DE VALE DE OFERTA</li><li>👑 GIFT CARD MERCADO LIVRE</li><li>👑 MÉTODO CASHAPP</li><li>👑 MÉTODO DE SAQUE</li><li>👑 MÉTODO SEGUIDORES</li><li>👑 ESQUEMA ROUPAS DA NIKE</li><li>👑 DIAMANTES FREE FIRE</li><li>👑 MÉTODO PROTONVPN</li><li>👑 COMPRAS NO BOLETO</li><li>👑 APROVA FACIL AMERICANAS</li><li>👑 PIX FAKE BANCOS</li><li>👑 MÉTODO MOZ PRO</li><li>👑 MÉTODO ROPYN</li><li>👑 MÉTODO OFFICE365</li><li>👑 MÉTODO IFOOD REEMBOLSO</li><li>👑 CURSOS CARDING</li><li>👑 COMO PEGAR DADOS FULL</li><li>👑 BURLADOR DE SELFIE</li><li>👑 PACK EDITÁVEL</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <div class="section-title">💎 POR QUE ENTRAR?</div>
-        <ul class="list">
-            <li>✅ Métodos exclusivos que rodam no dia.</li>
-            <li>✅ Grupo de Network com membros</li>
-            <li>✅ FORMAS DE PAGAMENTO: PIX</li>
-        </ul>
+        <div class="section-title">🛡️ MÉTODOS & BUGS <span>[SECURE]</span></div>
+        <div class="grid">
+            <div class="item">NETFLIX ILIMITADA</div> <div class="item">NETFLIX CLARO</div>
+            <div class="item">BUG C6 BANK</div> <div class="item">DUOLINGO PLUS</div>
+            <div class="item">VRV+CHUNCHYROLL</div> <div class="item">PLAY PASS</div>
+            <div class="item">AMAZON MAX</div> <div class="item">NAMACHEAP VPN</div>
+            <div class="item">PDF DRIVE</div> <div class="item">HOOT SUITE</div>
+            <div class="item">MARVEL UNLIMITED</div> <div class="item">PHILO</div>
+            <div class="item">DEZZER 3 MESES</div> <div class="item">PREMIUM VIDEO</div>
+            <div class="item">CHUNCHYROLL</div> <div class="item">TIDAL</div>
+            <div class="item">HBO MAX 6 MESES</div> <div class="item">SPOTIFY PREMIUM</div>
+            <div class="item">TELECINE</div> <div class="item">YOUTUBE PREMIUM</div>
+            <div class="item">DISNEY PLUS</div> <div class="item">NAPSTER 3 MESES</div>
+            <div class="item">FLIXOLE</div> <div class="item">SOLOSARN</div>
+            <div class="item">PICSART GOLD</div> <div class="item">GLOBO PLAY</div>
+            <div class="item">GIFT CARD</div> <div class="item">PARAMOUNT</div>
+            <div class="item">SHUDDER</div> <div class="item">AMAZON</div>
+            <div class="item">GIFT EM BTC</div> <div class="item">MÉTODO 99</div>
+            <div class="item">PANINI METODO</div> <div class="item">MERCADO LIVRE</div>
+            <div class="item">TER GIFT CARD</div> <div class="item">EMPRÉSTIMO</div>
+            <div class="item">VALE-PRESENTE</div> <div class="item">RECARREGAR CARTÕES</div>
+            <div class="item">CASHAPP</div> <div class="item">CASAS BAHIA NOVO</div>
+            <div class="item">HACKEAR PLAY STORE</div> <div class="item">BURGUER KING</div>
+            <div class="item">MCDONALD'S</div> <div class="item">WISH TOP</div>
+            <div class="item">PAYPAL DOUBLE</div> <div class="item">INVASÃO PIX</div>
+            <div class="item">ALIEXPRESS</div> <div class="item">ESQUEMA LACOSTE</div>
+            <div class="item">COMPRAS MERCADO</div> <div class="item">ADULT TIME</div>
+            <div class="item">GAROTA PROGRAMA</div> <div class="item">CANVA PREMIUM</div>
+            <div class="item">INSCRITOS YT</div> <div class="item">UPAR GRUPO</div>
+            <div class="item">BANIR INSTA</div> <div class="item">DISCORD NITRO</div>
+            <div class="item">PONTO FRIO</div> <div class="item">LOJAS MANICA</div>
+            <div class="item">CÂMERA PRIVE</div> <div class="item">DEPÓSITO FAKE</div>
+            <div class="item">HACKEAR FACEBOOK</div> <div class="item">PLAYSTORE FREE</div>
+            <div class="item">LIMPAR NOME SERASA</div> <div class="item">VALE OFERTA</div>
+            <div class="item">SAQUE RÁPIDO</div> <div class="item">SEGUIDORES</div>
+            <div class="item">ROUPAS NIKE</div> <div class="item">DIAMANTES FF</div>
+            <div class="item">PROTONVPN</div> <div class="item">COMPRAS BOLETO</div>
+            <div class="item">AMERICANAS</div> <div class="item">PIX FAKE BANCOS</div>
+            <div class="item">MOZ PRO</div> <div class="item">OFFICE 365</div>
+            <div class="item">IFOOD REEMBOLSO</div> <div class="item">CURSOS CARDING</div>
+            <div class="item">DADOS FULL</div> <div class="item">BURLADOR SELFIE</div>
+            <div class="item">PACK EDITÁVEL</div>
+        </div>
     </div>
 
     <div class="footer">
-        <a href="https://t.me/vivoDluxo" class="btn">👑 Suporte: @vivoDluxo</a>
-        <a href="https://t.me/ThommasCooper" class="btn">👑 Suporte: @ThommasCooper</a>
+        © 2026 EZORDIUM STORE - TODOS OS DIREITOS RESERVADOS
     </div>
 </div>
 
