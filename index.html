@@ -3,135 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VIP EXZORDIUM - 2026</title>
+    <title>VIP EZORDIUM // AETHERIUS PROTOCOL</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Text+Me+One&family=Wallpoet&display=swap');
 
         :root {
-            --neon-green: #00ff41;
-            --neon-purple: #bc13fe;
-            --bg-black: #050505;
-            --glow: 0 0 15px rgba(0, 255, 65, 0.5);
+            --red-pure: #f00;
+            --red-glow: rgba(255, 0, 0, 0.6);
+            --red-subtle: #400;
+            --bg-deep: #000000;
+            --bg-panel: #0a0a0a;
+            --tech-font: 'Wallpoet', cursive;
+            --clean-font: 'Text Me One', sans-serif;
         }
 
         body {
-            background-color: var(--bg-black);
-            color: #fff;
-            font-family: 'Rajdhani', sans-serif;
-            margin: 0; padding: 15px;
-            overflow-x: hidden;
+            background-color: var(--bg-deep);
+            color: #ffffff;
+            font-family: var(--clean-font);
+            margin: 0; padding: 10px;
+            display: flex; flex-direction: column; align-items: center;
+            letter-spacing: 1px;
         }
 
-        /* Efeito de Scanlines (Linhas de monitor) */
-        body::before {
-            content: " ";
-            display: block; position: fixed; top: 0; left: 0; bottom: 0; right: 0;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-            z-index: 2; background-size: 100% 2px, 3px 100%; pointer-events: none;
+        /* Efeito de glitch sutil no background */
+        body::after {
+            content: "";
+            background: linear-gradient(rgba(0,0,0,0) 50%, rgba(20,0,0,0.4) 50%);
+            background-size: 100% 2px;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 1; pointer-events: none; opacity: 0.3;
         }
 
         .container {
-            width: 100%; max-width: 450px;
-            margin: auto; position: relative; z-index: 3;
+            width: 100%; max-width: 480px;
+            position: relative; z-index: 10;
         }
 
-        /* Header Futurista */
+        /* Header Futurista Agressivo */
         .header {
-            border: 2px solid var(--neon-green);
-            border-radius: 20px 0 20px 0;
-            padding: 30px 15px;
+            border: 2px solid var(--red-pure);
+            border-radius: 5px;
+            padding: 25px 15px;
             text-align: center;
-            background: rgba(0, 255, 65, 0.05);
-            box-shadow: var(--glow), inset 0 0 20px rgba(0, 255, 65, 0.2);
+            background: rgba(10, 0, 0, 0.9);
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.4);
             margin-bottom: 30px;
-            animation: pulse 2s infinite;
+            position: relative;
+            animation: red-pulse 4s infinite;
         }
 
-        @keyframes pulse {
-            0% { box-shadow: 0 0 10px var(--neon-green); }
-            50% { box-shadow: 0 0 25px var(--neon-green); }
-            100% { box-shadow: 0 0 10px var(--neon-green); }
+        @keyframes red-pulse {
+            0% { box-shadow: 0 0 20px rgba(255, 0, 0, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(255, 0, 0, 0.6); }
+            100% { box-shadow: 0 0 20px rgba(255, 0, 0, 0.3); }
         }
 
-        .header h1 {
-            font-family: 'Orbitron', sans-serif;
-            color: var(--neon-purple);
-            font-size: 26px; margin: 0;
-            text-shadow: 0 0 15px var(--neon-purple);
-            letter-spacing: 3px;
+        .vital-info {
+            font-family: 'Syncopate', sans-serif;
+            color: #666; font-size: 10px;
+            margin-bottom: 8px; text-transform: uppercase;
         }
 
-        .price-box {
-            font-size: 45px; font-weight: 700;
-            color: var(--neon-green);
-            margin: 15px 0;
-            text-shadow: var(--glow);
-        }
-
-        /* Seções Estilo Painel de Controle */
-        .section {
-            border: 1px solid #333;
-            background: rgba(10, 10, 10, 0.9);
-            border-radius: 10px;
-            padding: 15px;
-            margin-bottom: 25px;
-            border-left: 5px solid var(--neon-purple);
-        }
-
-        .section-title {
-            font-family: 'Orbitron', sans-serif;
-            color: var(--neon-purple);
-            font-size: 16px;
+        h1 {
+            font-family: var(--tech-font);
+            color: #fff; font-size: 28px;
+            margin: 10px 0; text-shadow: 0 0 10px var(--red-pure);
             text-transform: uppercase;
-            margin-bottom: 15px;
-            display: flex; justify-content: space-between;
         }
 
-        /* Grid para caber TUDO sem ficar gigante */
+        .price-display {
+            font-family: var(--tech-font);
+            color: var(--red-pure); font-size: 50px;
+            margin: 15px 0; text-shadow: 0 0 20px var(--red-glow);
+        }
+
+        .sub-header {
+            color: #888; font-size: 13px; text-transform: uppercase;
+        }
+
+        /* Seções Painel de Controle Tech */
+        .section {
+            background: var(--bg-panel);
+            border: 1px solid #222;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            padding: 15px;
+            box-shadow: inset 0 0 10px rgba(255, 0, 0, 0.05);
+            border-left: 3px solid var(--red-pure);
+            transition: 0.3s;
+        }
+
+        .section:hover {
+            border: 1px solid var(--red-pure);
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+        }
+
+        .title-bar {
+            font-family: var(--tech-font);
+            color: var(--red-pure);
+            font-size: 16px; text-transform: uppercase;
+            margin-bottom: 15px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+
         .grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px;
+            gap: 8px;
         }
 
         .item {
             font-size: 13px;
             padding: 8px;
-            background: rgba(255,255,255,0.03);
+            background: rgba(20, 0, 0, 0.9);
             border-radius: 4px;
-            border-bottom: 1px solid #222;
-            color: #ccc;
+            color: #eee;
+            border-bottom: 1px solid var(--red-subtle);
             transition: 0.3s;
         }
 
         .item:hover {
-            color: var(--neon-green);
-            background: rgba(0, 255, 65, 0.1);
+            color: var(--red-pure);
+            background: rgba(255, 0, 0, 0.1);
         }
 
-        .item b { color: var(--neon-green); margin-right: 5px; }
+        .item b { color: var(--red-pure); margin-right: 5px; font-family: var(--tech-font); }
 
-        .full-width { grid-column: span 2; }
-
-        .footer {
-            text-align: center;
-            padding: 20px;
-            font-size: 12px;
-            color: #666;
-            border-top: 1px dashed var(--neon-green);
+        /* RODAPÉ DO VÍDEO NOVO */
+        .refs-info {
+            margin-top: 25px; padding-top: 20px;
+            border-top: 1px solid #222;
+            text-align: center; color: #888;
         }
 
-        .btn-buy {
-            display: block;
-            background: var(--neon-purple);
-            color: #fff;
-            padding: 15px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            text-align: center;
-            box-shadow: 0 0 15px var(--neon-purple);
-            margin-top: 20px;
+        .refs-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 10px; margin-bottom: 20px;
+        }
+
+        .ref-card {
+            background: rgba(10,10,10,0.5); border-radius: 5px;
+            padding: 10px; border: 1px solid #1a1a1a;
+        }
+
+        .ref-val { font-size: 16px; font-weight: bold; color: #fff; }
+        .ref-label { font-size: 11px; color: #aaa; }
+
+        .btn-entry {
+            background: transparent; border: 1px solid var(--red-pure);
+            color: var(--red-pure); font-weight: bold; font-family: var(--tech-font);
+            padding: 15px; border-radius: 5px;
+            text-decoration: none; text-align: center;
+            display: block; margin: 10px 0;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+        }
+
+        .btn-entry:hover {
+            background: var(--red-pure); color: #000;
         }
     </style>
 </head>
@@ -139,14 +168,14 @@
 
 <div class="container">
     <div class="header">
-        <div style="font-size: 11px; letter-spacing: 4px; margin-bottom: 10px;">SYSTEM STATUS: ONLINE</div>
-        <h1>VIP EXCLUSIVE</h1>
-        <div class="price-box">R$ 20,00</div>
-        <div style="color: #888;">+5000 MÉTODOS ATUALIZADOS 2026</div>
+        <div class="vital-info">🔒 AETHEREUS // PROTOCOL v2.0 // DECRYPTED</div>
+        <h1>VIP EXCLUSIVE 2026</h1>
+        <div class="price-display">R$ 20,00</div>
+        <div class="sub-header">+5000 MÉTODOS ATUALIZADOS GLOBAIS</div>
     </div>
 
     <div class="section">
-        <div class="section-title">📂 INFO <span>[DECRYPTED]</span></div>
+        <div class="title-bar">⚡ INFO <span>[DECRYPT]</span></div>
         <div class="grid">
             <div class="item"><b>✓</b> MÉTODOS 2026</div>
             <div class="item"><b>✓</b> VÍDEO/PDF</div>
@@ -156,7 +185,7 @@
     </div>
 
     <div class="section">
-        <div class="section-title">🔥 ESQUEMAS DESTAQUE <span>[HOT]</span></div>
+        <div class="title-bar">💎 ESQUEMAS DSTAQUE <span>[HOT]</span></div>
         <div class="grid">
             <div class="item">BEBIDAS</div> <div class="item">DIMAS FF</div>
             <div class="item">IFOOD NA CC</div> <div class="item">RAÇÃO</div>
@@ -167,18 +196,18 @@
             <div class="item">PAGBANK SALDO</div> <div class="item">SUBMARINO</div>
             <div class="item">MAGALU</div> <div class="item">DROGASIL</div>
             <div class="item">RAPPI</div> <div class="item">NETSHOES</div>
-            <div class="item">PEGAR BOLETO</div> <div class="item">UBER EATS</div>
-            <div class="item">CACAU SHOW</div> <div class="item">SHOPEE</div>
-            <div class="item">TIKTOK</div>
+            <div class="item">UBER EATS</div> <div class="item">CACAU SHOW</div>
+            <div class="item">SHOPEE</div> <div class="item">TIKTOK</div>
+            <div class="item">PEGAR BOLETO</div>
         </div>
     </div>
 
     <div class="section">
-        <div class="section-title">🛡️ MÉTODOS & BUGS <span>[SECURE]</span></div>
+        <div class="title-bar">🛡️ MÉTODOS & BUGS <span>[SECURE]</span></div>
         <div class="grid">
-            <div class="item">NETFLIX ILIMITADA</div> <div class="item">NETFLIX CLARO</div>
+            <div class="item">NETFLIX ILIMITADA</div> <div class="item">NETFLIX VIA CLARO</div>
             <div class="item">BUG C6 BANK</div> <div class="item">DUOLINGO PLUS</div>
-            <div class="item">VRV+CHUNCHYROLL</div> <div class="item">PLAY PASS</div>
+            <div class="item">VRV + CHUNCHYROLL</div> <div class="item">PLAY PASS</div>
             <div class="item">AMAZON MAX</div> <div class="item">NAMACHEAP VPN</div>
             <div class="item">PDF DRIVE</div> <div class="item">HOOT SUITE</div>
             <div class="item">MARVEL UNLIMITED</div> <div class="item">PHILO</div>
@@ -193,34 +222,54 @@
             <div class="item">SHUDDER</div> <div class="item">AMAZON</div>
             <div class="item">GIFT EM BTC</div> <div class="item">MÉTODO 99</div>
             <div class="item">PANINI METODO</div> <div class="item">MERCADO LIVRE</div>
-            <div class="item">TER GIFT CARD</div> <div class="item">EMPRÉSTIMO</div>
-            <div class="item">VALE-PRESENTE</div> <div class="item">RECARREGAR CARTÕES</div>
+            <div class="item">GIFT CARD TER</div> <div class="item">EMPRÉSTIMO</div>
+            <div class="item">VALE-PRESENTE</div> <div class="item">RECARREGAR CARD</div>
             <div class="item">CASHAPP</div> <div class="item">CASAS BAHIA NOVO</div>
-            <div class="item">HACKEAR PLAY STORE</div> <div class="item">BURGUER KING</div>
+            <div class="item">HACK PLAY STORE</div> <div class="item">BURGUER KING</div>
             <div class="item">MCDONALD'S</div> <div class="item">WISH TOP</div>
             <div class="item">PAYPAL DOUBLE</div> <div class="item">INVASÃO PIX</div>
             <div class="item">ALIEXPRESS</div> <div class="item">ESQUEMA LACOSTE</div>
-            <div class="item">COMPRAS MERCADO</div> <div class="item">ADULT TIME</div>
-            <div class="item">GAROTA PROGRAMA</div> <div class="item">CANVA PREMIUM</div>
-            <div class="item">INSCRITOS YT</div> <div class="item">UPAR GRUPO</div>
+            <div class="item">COMPRAS MERCADO</div> <div class="item">GAROTA PROGRAMA</div>
+            <div class="item">CANVA PREMIUM</div> <div class="item">UPAR GRUPO</div>
             <div class="item">BANIR INSTA</div> <div class="item">DISCORD NITRO</div>
-            <div class="item">PONTO FRIO</div> <div class="item">LOJAS MANICA</div>
-            <div class="item">CÂMERA PRIVE</div> <div class="item">DEPÓSITO FAKE</div>
-            <div class="item">HACKEAR FACEBOOK</div> <div class="item">PLAYSTORE FREE</div>
-            <div class="item">LIMPAR NOME SERASA</div> <div class="item">VALE OFERTA</div>
-            <div class="item">SAQUE RÁPIDO</div> <div class="item">SEGUIDORES</div>
-            <div class="item">ROUPAS NIKE</div> <div class="item">DIAMANTES FF</div>
-            <div class="item">PROTONVPN</div> <div class="item">COMPRAS BOLETO</div>
-            <div class="item">AMERICANAS</div> <div class="item">PIX FAKE BANCOS</div>
-            <div class="item">MOZ PRO</div> <div class="item">OFFICE 365</div>
-            <div class="item">IFOOD REEMBOLSO</div> <div class="item">CURSOS CARDING</div>
-            <div class="item">DADOS FULL</div> <div class="item">BURLADOR SELFIE</div>
-            <div class="item">PACK EDITÁVEL</div>
+            <div class="item">CÂMERA PRIVE APROV</div> <div class="item">SPOTIFY PREMIUM</div>
+            <div class="item">MÉTODO AMAZON</div> <div class="item">HACKFACEBOOK</div>
+            <div class="item">PLAYSTORE FREE</div> <div class="item">LIMPAR SERASA/SPC</div>
+            <div class="item">MERCADO LIVRE GIFT</div> <div class="item">NIKE ROUPAS</div>
+            <div class="item"> DIAMANTES FF</div> <div class="item">PROTONVPN</div>
+            <div class="item">AMERICANAS BOLETO</div> <div class="item">PIX FAKE BANCOS</div>
+            <div class="item">CURSOS CARDING</div> <div class="item">DADOS FULL</div>
+            <div class="item">BURLADOR SELFIE</div> <div class="item">PACK EDITÁVEL</div>
+            <div class="item">IFOOD REEMBOLSO</div>
         </div>
     </div>
 
-    <div class="footer">
-        © 2026 EZORDIUM STORE - TODOS OS DIREITOS RESERVADOS
+    <div class="refs-info">
+        <div class="title-bar">📊 STATUS GLOBAL // PROTOCOL <span>[SYNCED]</span></div>
+        
+        <div class="refs-grid">
+            <div class="ref-card">
+                <div class="ref-val">+450</div>
+                <div class="ref-label">Clientes</div>
+            </div>
+            <div class="ref-card">
+                <div class="ref-val">+1000</div>
+                <div class="ref-label">Referências</div>
+            </div>
+            <div class="ref-card">
+                <div class="ref-val">100%</div>
+                <div class="ref-label">Suporte</div>
+            </div>
+        </div>
+
+        <div style="font-family: var(--tech-font); color: var(--red-pure); margin-bottom: 20px;">
+            💎 PAINÉIS GRÁTIS // ACESSO IMEDIATO 💎
+        </div>
+        
+        <div style="font-size: 11px; margin-top: 15px;">
+            SUPORTE OFICIAL: <br>
+            @ThommasCooper | @vivoDluxo
+        </div>
     </div>
 </div>
 
