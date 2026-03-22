@@ -3,164 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VIP EZORDIUM // AETHERIUS PROTOCOL</title>
+    <title>VIP EXZORDIUM // PROTOCOLO AETHERIUS</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Text+Me+One&family=Wallpoet&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Text+Me+One&display=swap');
 
         :root {
-            --red-pure: #f00;
-            --red-glow: rgba(255, 0, 0, 0.6);
-            --red-subtle: #400;
-            --bg-deep: #000000;
-            --bg-panel: #0a0a0a;
-            --tech-font: 'Wallpoet', cursive;
-            --clean-font: 'Text Me One', sans-serif;
+            --red: #f00;
+            --bg: #000;
+            --panel: #0a0a0a;
+            --font-destaque: 'Audiowide', cursive;
         }
 
         body {
-            background-color: var(--bg-deep);
-            color: #ffffff;
-            font-family: var(--clean-font);
+            background-color: var(--bg);
+            color: #fff;
+            font-family: 'Text Me One', sans-serif;
             margin: 0; padding: 10px;
             display: flex; flex-direction: column; align-items: center;
-            letter-spacing: 1px;
         }
 
-        /* Efeito de glitch sutil no background */
-        body::after {
-            content: "";
-            background: linear-gradient(rgba(0,0,0,0) 50%, rgba(20,0,0,0.4) 50%);
-            background-size: 100% 2px;
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 1; pointer-events: none; opacity: 0.3;
-        }
+        .container { width: 100%; max-width: 480px; position: relative; z-index: 10; }
 
-        .container {
-            width: 100%; max-width: 480px;
-            position: relative; z-index: 10;
-        }
-
-        /* Header Futurista Agressivo */
         .header {
-            border: 2px solid var(--red-pure);
-            border-radius: 5px;
-            padding: 25px 15px;
+            border: 2px solid var(--red);
             text-align: center;
-            background: rgba(10, 0, 0, 0.9);
-            box-shadow: 0 0 30px rgba(255, 0, 0, 0.4);
-            margin-bottom: 30px;
-            position: relative;
-            animation: red-pulse 4s infinite;
+            padding: 25px 10px;
+            background: rgba(15, 0, 0, 0.9);
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.4);
+            margin-bottom: 25px;
         }
 
-        @keyframes red-pulse {
-            0% { box-shadow: 0 0 20px rgba(255, 0, 0, 0.3); }
-            50% { box-shadow: 0 0 40px rgba(255, 0, 0, 0.6); }
-            100% { box-shadow: 0 0 20px rgba(255, 0, 0, 0.3); }
-        }
+        h1 { font-family: var(--font-destaque); font-size: 24px; text-shadow: 0 0 10px var(--red); margin: 5px 0; }
+        .price { font-family: var(--font-destaque); color: var(--red); font-size: 48px; text-shadow: 0 0 20px var(--red); margin: 10px 0; }
 
-        .vital-info {
-            font-family: 'Syncopate', sans-serif;
-            color: #666; font-size: 10px;
-            margin-bottom: 8px; text-transform: uppercase;
-        }
-
-        h1 {
-            font-family: var(--tech-font);
-            color: #fff; font-size: 28px;
-            margin: 10px 0; text-shadow: 0 0 10px var(--red-pure);
-            text-transform: uppercase;
-        }
-
-        .price-display {
-            font-family: var(--tech-font);
-            color: var(--red-pure); font-size: 50px;
-            margin: 15px 0; text-shadow: 0 0 20px var(--red-glow);
-        }
-
-        .sub-header {
-            color: #888; font-size: 13px; text-transform: uppercase;
-        }
-
-        /* Seções Painel de Controle Tech */
         .section {
-            background: var(--bg-panel);
+            background: var(--panel);
             border: 1px solid #222;
-            border-radius: 8px;
-            margin-bottom: 20px;
+            border-left: 4px solid var(--red);
             padding: 15px;
-            box-shadow: inset 0 0 10px rgba(255, 0, 0, 0.05);
-            border-left: 3px solid var(--red-pure);
-            transition: 0.3s;
+            margin-bottom: 20px;
         }
 
-        .section:hover {
-            border: 1px solid var(--red-pure);
-            box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
-        }
+        .title { font-family: var(--font-destaque); color: var(--red); font-size: 15px; margin-bottom: 12px; text-transform: uppercase; }
 
-        .title-bar {
-            font-family: var(--tech-font);
-            color: var(--red-pure);
-            font-size: 16px; text-transform: uppercase;
-            margin-bottom: 15px;
-            display: flex; justify-content: space-between; align-items: center;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
-        }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 
         .item {
-            font-size: 13px;
-            padding: 8px;
-            background: rgba(20, 0, 0, 0.9);
-            border-radius: 4px;
-            color: #eee;
-            border-bottom: 1px solid var(--red-subtle);
-            transition: 0.3s;
+            font-size: 12px; padding: 6px;
+            background: rgba(20, 0, 0, 0.8);
+            border-bottom: 1px solid #300;
+            color: #ddd;
         }
+        .item b { color: var(--red); margin-right: 4px; }
 
-        .item:hover {
-            color: var(--red-pure);
-            background: rgba(255, 0, 0, 0.1);
+        /* RODAPÉ COM ÍCONES VERMELHOS */
+        .footer-box { text-align: center; margin-top: 20px; border-top: 1px solid #222; padding-top: 20px; }
+        .refs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
+        .ref-card { display: flex; flex-direction: column; align-items: center; }
+        .icon-red { font-size: 22px; color: var(--red); text-shadow: 0 0 8px var(--red); margin-bottom: 5px; }
+        .ref-val { font-family: var(--font-destaque); font-size: 13px; }
+        .ref-label { font-size: 10px; color: #777; text-transform: uppercase; }
+
+        .pix-alert {
+            font-family: var(--font-destaque);
+            color: var(--red);
+            font-size: 14px;
+            margin: 20px 0;
+            text-shadow: 0 0 10px var(--red);
+            animation: blink 1s infinite;
         }
+        @keyframes blink { 50% { opacity: 0.4; } }
 
-        .item b { color: var(--red-pure); margin-right: 5px; font-family: var(--tech-font); }
-
-        /* RODAPÉ DO VÍDEO NOVO */
-        .refs-info {
-            margin-top: 25px; padding-top: 20px;
-            border-top: 1px solid #222;
-            text-align: center; color: #888;
-        }
-
-        .refs-grid {
-            display: grid; grid-template-columns: repeat(3, 1fr);
-            gap: 10px; margin-bottom: 20px;
-        }
-
-        .ref-card {
-            background: rgba(10,10,10,0.5); border-radius: 5px;
-            padding: 10px; border: 1px solid #1a1a1a;
-        }
-
-        .ref-val { font-size: 16px; font-weight: bold; color: #fff; }
-        .ref-label { font-size: 11px; color: #aaa; }
-
-        .btn-entry {
-            background: transparent; border: 1px solid var(--red-pure);
-            color: var(--red-pure); font-weight: bold; font-family: var(--tech-font);
-            padding: 15px; border-radius: 5px;
-            text-decoration: none; text-align: center;
-            display: block; margin: 10px 0;
-            box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
-        }
-
-        .btn-entry:hover {
-            background: var(--red-pure); color: #000;
+        .btn {
+            border: 1px solid var(--red);
+            color: var(--red);
+            display: block;
+            padding: 12px;
+            margin: 8px 0;
+            text-decoration: none;
+            font-family: var(--font-destaque);
+            font-size: 11px;
+            text-align: center;
         }
     </style>
 </head>
@@ -168,107 +91,80 @@
 
 <div class="container">
     <div class="header">
-        <div class="vital-info">🔒 AETHEREUS // PROTOCOL v2.0 // DECRYPTED</div>
-        <h1>VIP EXCLUSIVE 2026</h1>
-        <div class="price-display">R$ 20,00</div>
-        <div class="sub-header">+5000 MÉTODOS ATUALIZADOS GLOBAIS</div>
+        <div style="font-size: 10px; letter-spacing: 3px;">🔒 ACESSO VITALÍCIO & ANÔNIMO</div>
+        <h1>CANAL DE MÉTODOS EXCLUSIVE</h1>
+        <div class="price">R$ 20,00</div>
+        <div style="font-size: 11px; color: #888;">+10 MIL MÉTODOS | MATÉRIA PRIMEIRA</div>
     </div>
 
     <div class="section">
-        <div class="title-bar">⚡ INFO <span>[DECRYPT]</span></div>
+        <div class="title">🚀 MÉTODOS 2026</div>
         <div class="grid">
-            <div class="item"><b>✓</b> MÉTODOS 2026</div>
-            <div class="item"><b>✓</b> VÍDEO/PDF</div>
-            <div class="item"><b>✓</b> SUPORTE 24H</div>
-            <div class="item"><b>✓</b> TUTORIAIS</div>
+            <div class="item"><b>▶</b> Abrir LARA MP 2026</div> <div class="item"><b>▶</b> Método Dar Ban Insta</div>
+            <div class="item"><b>▶</b> Lara sem Docs</div> <div class="item"><b>▶</b> Aumentar Score</div>
+            <div class="item"><b>▶</b> Golpe Kitei Dívidas</div> <div class="item"><b>▶</b> Trampo iFood CC</div>
+            <div class="item"><b>▶</b> Estorno iFood 2026</div> <div class="item"><b>▶</b> Golpe Pier Seguradora</div>
+            <div class="item"><b>▶</b> NFC Nubank + Trilha</div> <div class="item"><b>▶</b> Receitas Anabólicas</div>
+            <div class="item"><b>▶</b> Abrir Banco SP GC</div> <div class="item"><b>▶</b> Trampo Milhas Smiles</div>
+            <div class="item"><b>▶</b> Trampo Shein iPhone</div> <div class="item"><b>▶</b> Hospedagem Booking</div>
+            <div class="item"><b>▶</b> MP Antecipação</div> <div class="item"><b>▶</b> Netflix Ilimitada</div>
         </div>
     </div>
 
     <div class="section">
-        <div class="title-bar">💎 ESQUEMAS DSTAQUE <span>[HOT]</span></div>
+        <div class="title">🛠 FERRAMENTAS & PVC</div>
         <div class="grid">
-            <div class="item">BEBIDAS</div> <div class="item">DIMAS FF</div>
-            <div class="item">IFOOD NA CC</div> <div class="item">RAÇÃO</div>
-            <div class="item">CARNE</div> <div class="item">PICPAY</div>
-            <div class="item">MERCADO PAGO</div> <div class="item">ITI ITAÚ</div>
-            <div class="item">CASAS BAHIA</div> <div class="item">POLISHOP</div>
-            <div class="item">WISH</div> <div class="item">GASOLINA</div>
-            <div class="item">PAGBANK SALDO</div> <div class="item">SUBMARINO</div>
-            <div class="item">MAGALU</div> <div class="item">DROGASIL</div>
-            <div class="item">RAPPI</div> <div class="item">NETSHOES</div>
-            <div class="item">UBER EATS</div> <div class="item">CACAU SHOW</div>
-            <div class="item">SHOPEE</div> <div class="item">TIKTOK</div>
-            <div class="item">PEGAR BOLETO</div>
+            <div class="item"><b>▶</b> PVC Carmem Steffens</div> <div class="item"><b>▶</b> PVC Eskala / Havan</div>
+            <div class="item"><b>▶</b> PVC Palmeiras / Meliuz</div> <div class="item"><b>▶</b> PVC BRB Flamengo</div>
+            <div class="item"><b>▶</b> Track2NFC</div> <div class="item"><b>▶</b> Vários Burladores</div>
+            <div class="item"><b>▶</b> VCAMERA (Apk Foto)</div> <div class="item"><b>▶</b> ManyCam + Crack</div>
+            <div class="item"><b>▶</b> Core Draw 2026</div> <div class="item"><b>▶</b> Virar Saldo Consultável</div>
+            <div class="item"><b>▶</b> Virar Saldo PicPay</div> <div class="item"><b>▶</b> Virar Saldo MP/Sumup</div>
+            <div class="item"><b>▶</b> Virar Saldo Stone/Ton</div> <div class="item"><b>▶</b> Virar Saldo PagBank</div>
         </div>
     </div>
 
     <div class="section">
-        <div class="title-bar">🛡️ MÉTODOS & BUGS <span>[SECURE]</span></div>
+        <div class="title">📟 PACK & HACKING</div>
         <div class="grid">
-            <div class="item">NETFLIX ILIMITADA</div> <div class="item">NETFLIX VIA CLARO</div>
-            <div class="item">BUG C6 BANK</div> <div class="item">DUOLINGO PLUS</div>
-            <div class="item">VRV + CHUNCHYROLL</div> <div class="item">PLAY PASS</div>
-            <div class="item">AMAZON MAX</div> <div class="item">NAMACHEAP VPN</div>
-            <div class="item">PDF DRIVE</div> <div class="item">HOOT SUITE</div>
-            <div class="item">MARVEL UNLIMITED</div> <div class="item">PHILO</div>
-            <div class="item">DEZZER 3 MESES</div> <div class="item">PREMIUM VIDEO</div>
-            <div class="item">CHUNCHYROLL</div> <div class="item">TIDAL</div>
-            <div class="item">HBO MAX 6 MESES</div> <div class="item">SPOTIFY PREMIUM</div>
-            <div class="item">TELECINE</div> <div class="item">YOUTUBE PREMIUM</div>
-            <div class="item">DISNEY PLUS</div> <div class="item">NAPSTER 3 MESES</div>
-            <div class="item">FLIXOLE</div> <div class="item">SOLOSARN</div>
-            <div class="item">PICSART GOLD</div> <div class="item">GLOBO PLAY</div>
-            <div class="item">GIFT CARD</div> <div class="item">PARAMOUNT</div>
-            <div class="item">SHUDDER</div> <div class="item">AMAZON</div>
-            <div class="item">GIFT EM BTC</div> <div class="item">MÉTODO 99</div>
-            <div class="item">PANINI METODO</div> <div class="item">MERCADO LIVRE</div>
-            <div class="item">GIFT CARD TER</div> <div class="item">EMPRÉSTIMO</div>
-            <div class="item">VALE-PRESENTE</div> <div class="item">RECARREGAR CARD</div>
-            <div class="item">CASHAPP</div> <div class="item">CASAS BAHIA NOVO</div>
-            <div class="item">HACK PLAY STORE</div> <div class="item">BURGUER KING</div>
-            <div class="item">MCDONALD'S</div> <div class="item">WISH TOP</div>
-            <div class="item">PAYPAL DOUBLE</div> <div class="item">INVASÃO PIX</div>
-            <div class="item">ALIEXPRESS</div> <div class="item">ESQUEMA LACOSTE</div>
-            <div class="item">COMPRAS MERCADO</div> <div class="item">GAROTA PROGRAMA</div>
-            <div class="item">CANVA PREMIUM</div> <div class="item">UPAR GRUPO</div>
-            <div class="item">BANIR INSTA</div> <div class="item">DISCORD NITRO</div>
-            <div class="item">CÂMERA PRIVE APROV</div> <div class="item">SPOTIFY PREMIUM</div>
-            <div class="item">MÉTODO AMAZON</div> <div class="item">HACKFACEBOOK</div>
-            <div class="item">PLAYSTORE FREE</div> <div class="item">LIMPAR SERASA/SPC</div>
-            <div class="item">MERCADO LIVRE GIFT</div> <div class="item">NIKE ROUPAS</div>
-            <div class="item"> DIAMANTES FF</div> <div class="item">PROTONVPN</div>
-            <div class="item">AMERICANAS BOLETO</div> <div class="item">PIX FAKE BANCOS</div>
-            <div class="item">CURSOS CARDING</div> <div class="item">DADOS FULL</div>
-            <div class="item">BURLADOR SELFIE</div> <div class="item">PACK EDITÁVEL</div>
-            <div class="item">IFOOD REEMBOLSO</div>
+            <div class="item"><b>▶</b> Pack Editáveis 2026</div> <div class="item"><b>▶</b> Criação de Laras</div>
+            <div class="item"><b>▶</b> Contas Premium</div> <div class="item"><b>▶</b> Hackear Câmeras</div>
+            <div class="item"><b>▶</b> Cardagem Profissional</div> <div class="item"><b>▶</b> Métodos de Apostas</div>
+            <div class="item"><b>▶</b> Limpar Nome Serasa</div> <div class="item"><b>▶</b> Comprar com CC</div>
+            <div class="item"><b>▶</b> Verificar CC e Consuls</div> <div class="item"><b>▶</b> Hackear FB/Insta/WPP</div>
+            <div class="item"><b>▶</b> Esquema Bebidas</div> <div class="item"><b>▶</b> Esquema Carne</div>
+            <div class="item"><b>▶</b> Bug C6 Bank</div> <div class="item"><b>▶</b> Disney / HBO Max</div>
         </div>
     </div>
 
-    <div class="refs-info">
-        <div class="title-bar">📊 STATUS GLOBAL // PROTOCOL <span>[SYNCED]</span></div>
-        
-        <div class="refs-grid">
+    <div class="footer-box">
+        <div class="refs">
             <div class="ref-card">
+                <div class="icon-red">👥</div>
                 <div class="ref-val">+450</div>
                 <div class="ref-label">Clientes</div>
             </div>
             <div class="ref-card">
-                <div class="ref-val">+1000</div>
-                <div class="ref-label">Referências</div>
+                <div class="icon-red">⭐</div>
+                <div class="ref-val">DE 1000</div>
+                <div class="ref-label">Refs</div>
             </div>
             <div class="ref-card">
+                <div class="icon-red">🎧</div>
                 <div class="ref-val">100%</div>
                 <div class="ref-label">Suporte</div>
             </div>
         </div>
 
-        <div style="font-family: var(--tech-font); color: var(--red-pure); margin-bottom: 20px;">
-            💎 PAINÉIS GRÁTIS // ACESSO IMEDIATO 💎
+        <div class="ref-card" style="margin-bottom: 20px;">
+            <div class="icon-red">🎁</div>
+            <div class="ref-val">PAINÉIS GRÁTIS</div>
         </div>
+
+        <div class="pix-alert">Acesso imediato após pagamento (pix)🚀</div>
         
-        <div style="font-size: 11px; margin-top: 15px;">
-            SUPORTE OFICIAL: <br>
-            @ThommasCooper | @vivoDluxo
+        <div style="font-size: 10px; color: #555; margin-top: 15px;">
+            SUPORTE: @ThommasCooper | @vivoDluxo
         </div>
     </div>
 </div>
